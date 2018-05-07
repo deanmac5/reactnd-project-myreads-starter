@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 
-class Title extends Component {
+class BookShelf extends Component {
 
     render() {
         return (
-            <div className="list-books-title">
-                <h1>MyReads</h1>
-            </div>
+            <h2 className="bookshelf-title">{this.props.name}</h2>
+
         )
     }
 
 }
 
-export default Title
+export default BookShelf
