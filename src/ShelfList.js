@@ -21,6 +21,7 @@ class ShelfList extends Component {
 
                         {this.state.types.map((type) =>
                             <BookShelf
+                                key={type}
                                 name={type}
                             />
                         )}
