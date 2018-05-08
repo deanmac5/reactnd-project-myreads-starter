@@ -2,11 +2,22 @@ import React, { Component } from 'react'
 import Title from './Title'
 import BookShelf from './BookShelf';
 import { Link } from 'react-router-dom'
+import * as BooksAPI from './BooksAPI'
 
 class ShelfList extends Component {
 
     state = {
-        types: ["Currently reading", "Read", "Want to Read"]
+        types: ["Currently reading", "Read", "Want to Read"],
+        books: []
+    }
+
+    componentDidMount() {
+        BooksAPI.getAll()
+            .then((books) => {
+                this.setState(() => ({
+                    books
+                }))
+            })
     }
 
     render() {
@@ -23,6 +34,7 @@ class ShelfList extends Component {
                             <BookShelf
                                 key={type}
                                 name={type}
+                                books={this.state.books}
                             />
                         )}
 
