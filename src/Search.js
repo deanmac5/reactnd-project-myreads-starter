@@ -1,8 +1,22 @@
 import React, { Component } from 'react'
-import App from './App'
 import { Link } from 'react-router-dom'
 
 class Search extends Component {
+
+    state = {
+        query: ''
+    }
+
+    updateQuery = (query) => {
+        this.setState(() => ({
+            query: query.trim()
+        }))
+        console.log(this.state.query) 
+    }
+
+    clearQuery = () => {
+        this.updateQuery('')
+    }
 
     render() {
         return (

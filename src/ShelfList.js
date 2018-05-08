@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
 import Title from './Title'
 import BookShelf from './BookShelf';
 import { Link } from 'react-router-dom'
