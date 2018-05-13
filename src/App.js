@@ -20,7 +20,6 @@ class BooksApp extends React.Component {
           books
         }))
       })
-    
   }
 
   removeWhiteSpace(str){

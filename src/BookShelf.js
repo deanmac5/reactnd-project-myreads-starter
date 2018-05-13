@@ -16,10 +16,12 @@ class BookShelf extends Component {
                                 title={book.title}
                                 author={book.authors[0]}
                                 picUrl={book.imageLinks.thumbnail}
+                                shelf={this.props.name}
                             />
                         </li>
                     )}
-                    </ol></div>
+                    </ol>
+                </div>
             </div>
 
         )
