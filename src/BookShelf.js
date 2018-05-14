@@ -4,6 +4,13 @@ import Book from './Book'
 
 class BookShelf extends Component {
 
+    componentDidMount() {
+        console.log(this.props)
+    }
+
+    showMeBook(title, shelf) {
+        console.log(title, shelf);
+    }
 
     render() {
         return (
@@ -17,6 +24,8 @@ class BookShelf extends Component {
                                 author={book.authors[0]}
                                 picUrl={book.imageLinks.thumbnail}
                                 shelf={this.props.name}
+                                update={this.showMeBook}
+                                // update={this.props.updateShelf}
                             />
                         </li>
                     )}

@@ -3,8 +3,15 @@ import React, { Component } from 'react'
 
 class Book extends Component {
 
+
     componentDidMount() {
         console.log(this.props)
+    }
+
+    handleChange = (event) => {
+        // console.log(this.props.title);
+        // console.log(event.target.value);
+        this.props.update(this.props.title, event.target.value);
     }
 
     render() {
@@ -18,11 +25,12 @@ class Book extends Component {
 
                     <div className="book-shelf-changer">
 
-                        <select value={this.props.shelf}>
-                            <option value="currentlyReading">Currently Reading</option>
-                            <option value="wantToRead">Want to read</option>
-                            <option value="read">Read</option>
-                            <option value="none">None</option>
+                        <select value={this.props.shelf} selected={this.props.shelf} onChange={this.handleChange}>
+                            <option value="none" disabled>Move to...</option>
+                            <option value="Currently Reading">Currently Reading</option>
+                            <option value="Want to read">Want to read</option>
+                            <option value="Read">Read</option>
+                         
                         </select>
 
                     </div>

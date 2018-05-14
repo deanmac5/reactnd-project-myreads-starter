@@ -22,6 +22,19 @@ class BooksApp extends React.Component {
       })
   }
 
+  bookUpdate = (book, shelf) => {
+    console.log(book);
+    console.log(shelf);
+  }
+
+  updateShelf = (book, shelf) => {
+    
+    BooksAPI.update(book, shelf);
+    this.setState({
+      books: this.state.books.filter(b => b.id !== book.id).concat([book])
+    });    
+  }
+
   removeWhiteSpace(str){
     return str.replace(/\s/g,'').toLowerCase();
   }
@@ -44,6 +57,7 @@ class BooksApp extends React.Component {
                     key={type}
                     name={type}
                     books={this.state.books.filter((book) => book.shelf.toLowerCase() === this.removeWhiteSpace(type))}
+                    updateShelf={this.updateShelf}
                   />
                 )}
 
