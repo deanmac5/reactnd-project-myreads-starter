@@ -3,9 +3,15 @@ import React, { Component } from 'react'
 
 class Book extends Component {
 
+    
 
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
+    }
+
+    getAuthors = (authors) => {
+        console.log(authors);
+        return authors ? authors.join(', ') : 'Unknown';
     }
 
     handleChange = (event) => {
@@ -15,6 +21,8 @@ class Book extends Component {
     }
 
     render() {
+        const authors = this.getAuthors(this.props.author);
+
         return (
             <div className="book">
                 <div className="book-top">
@@ -36,7 +44,7 @@ class Book extends Component {
                     </div>
                 </div>
                 <div className="book-title">{this.props.title}</div>
-                <div className="book-authors">{this.props.author}</div>
+                <div className="book-authors">{authors}</div>
 
             </div>
 

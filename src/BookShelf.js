@@ -12,6 +12,8 @@ class BookShelf extends Component {
         console.log(title, shelf);
     }
 
+    
+
     render() {
         return (
             <div>
@@ -21,7 +23,7 @@ class BookShelf extends Component {
                         <li key={book.title}>
                             <Book
                                 title={book.title}
-                                author={book.authors[0]}
+                                author={book.authors}
                                 picUrl={book.imageLinks.thumbnail}
                                 shelf={this.props.name}
                                 update={this.showMeBook}
