@@ -6,34 +6,31 @@ class Book extends Component {
     
 
     componentDidMount() {
-        // console.log(this.props)
+        console.log(this.props)
     }
 
     getAuthors = (authors) => {
-        console.log(authors);
         return authors ? authors.join(', ') : 'Unknown';
     }
 
     handleChange = (event) => {
-        // console.log(this.props.title);
-        // console.log(event.target.value);
-        this.props.update(this.props.title, event.target.value);
+        this.props.update(this.props.book, event.target.value);
     }
 
     render() {
-        const authors = this.getAuthors(this.props.author);
+        const authors = this.getAuthors(this.props.book.authors);
 
         return (
             <div className="book">
                 <div className="book-top">
 
                     <div className="book-cover">
-                        <img style={{ width: 128, height: 192 }} alt={this.props.title} src={this.props.picUrl}></img>
+                        <img style={{ width: 128, height: 192 }} alt={this.props.book.title} src={this.props.book.imageLinks.thumbnail}></img>
                     </div>
-
+                    {/* <BookShelfChanger book= */}
                     <div className="book-shelf-changer">
 
-                        <select value={this.props.shelf} selected={this.props.shelf} onChange={this.handleChange}>
+                        <select value={this.props.book.shelf} selected={this.props.book.shelf} onChange={this.handleChange}>
                             <option value="none" disabled>Move to...</option>
                             <option value="Currently Reading">Currently Reading</option>
                             <option value="Want to read">Want to read</option>
@@ -43,7 +40,7 @@ class Book extends Component {
 
                     </div>
                 </div>
-                <div className="book-title">{this.props.title}</div>
+                <div className="book-title">{this.props.book.title}</div>
                 <div className="book-authors">{authors}</div>
 
             </div>
