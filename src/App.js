@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    types: ["Currently reading", "Read", "Want to Read"],
+    types: ["Currently reading", "Read", "Want to read"],
     books: []
   }
 
@@ -22,17 +22,13 @@ class BooksApp extends React.Component {
       })
   }
 
-  bookUpdate = (book, shelf) => {
-    console.log(book);
-    console.log(shelf);
-  }
-
   updateShelf = (book, shelf) => {
-    // book.shelf = shelf
+    book.shelf = shelf
     BooksAPI.update(book, shelf);
     this.setState({
       books: this.state.books.filter(b => b.id !== book.id).concat([book])
-    });    
+    });   
+     
   }
 
   removeWhiteSpace(str){
