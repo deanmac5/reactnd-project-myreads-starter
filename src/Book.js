@@ -7,7 +7,7 @@ class Book extends Component {
     
 
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
     }
 
     getAuthors = (authors) => {

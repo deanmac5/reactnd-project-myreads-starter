@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 class BooksApp extends React.Component {
   state = {
-    types: ["Currently reading", "Read", "Want to read"],
+    types: ["Currently Reading", "Want to Read", "Read"],
     books: []
   }
 
@@ -67,7 +67,7 @@ class BooksApp extends React.Component {
         )} />
 
         <Route path='/search' render={({ history }) => (
-          <Search />
+          <Search updateShelf={this.updateShelf}/>
         )} />
 
       </div>
