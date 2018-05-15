@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import BookShelfChanger from './BookShelfChanger'
+import React, { Component } from 'react';
+import BookShelfChanger from './BookShelfChanger';
 
 
 class Book extends Component {
@@ -30,4 +30,4 @@ class Book extends Component {
 
 }
 
-export default Book
+export default Book;

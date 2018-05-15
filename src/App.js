@@ -1,11 +1,11 @@
-import React from 'react'
-import './App.css'
-import Search from './Search'
-import { Route } from 'react-router-dom'
-import * as BooksAPI from './BooksAPI'
-import Title from './Title'
+import React from 'react';
+import './App.css';
+import Search from './Search';
+import { Route } from 'react-router-dom';
+import * as BooksAPI from './BooksAPI';
+import Title from './Title';
 import BookShelf from './BookShelf';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class BooksApp extends React.Component {
   state = {
@@ -23,7 +23,7 @@ class BooksApp extends React.Component {
   }
 
   updateShelf = (book, shelf) => {
-    book.shelf = shelf
+    book.shelf = shelf;
     BooksAPI.update(book, shelf);
     this.setState({
       books: this.state.books.filter(b => b.id !== book.id).concat([book])
@@ -69,4 +69,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default BooksApp;

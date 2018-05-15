@@ -1,14 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class BookShelfChanger extends Component {
 
-    componentDidMount() {
-        // console.log(this.props)
-    }
-
     handleChange = (event) => {
         this.props.updateShelf(this.props.book, event.target.value);
-    }
+    };
 
     render() {
         return (
@@ -22,7 +18,7 @@ class BookShelfChanger extends Component {
                 </select>
             </div>
         )
-    }
+    };
 }
 
 export default BookShelfChanger;
