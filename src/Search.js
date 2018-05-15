@@ -26,7 +26,7 @@ class Search extends Component {
         }))
     }
 
-
+   
     clearQuery = () => {
         this.updateQuery('')
     }

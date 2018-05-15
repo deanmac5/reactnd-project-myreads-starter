@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 class BookShelfChanger extends Component {
 
     handleChange = (event) => {
-        this.props.update(this.props.book, event.target.value);
+        this.props.updateShelf(this.props.book, event.target.value);
     }
 
     render() {
