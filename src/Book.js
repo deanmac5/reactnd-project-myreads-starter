@@ -4,17 +4,9 @@ import BookShelfChanger from './BookShelfChanger'
 
 class Book extends Component {
 
-    
-
-    componentDidMount() {
-        // console.log(this.props)
-    }
-
     getAuthors = (authors) => {
         return authors ? authors.join(', ') : 'Unknown';
     }
-
-   
 
     render() {
         const authors = this.getAuthors(this.props.book.authors);
@@ -33,7 +25,6 @@ class Book extends Component {
                 <div className="book-authors">{authors}</div>
 
             </div>
-
         )
     }
 

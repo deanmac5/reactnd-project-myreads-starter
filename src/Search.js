@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import * as BooksAPI from './BooksAPI'
-import Book from './Book'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import * as BooksAPI from './BooksAPI';
+import Book from './Book';
 
 class Search extends Component {
 
@@ -10,15 +10,13 @@ class Search extends Component {
         resultBooks: []
     };
 
-
-    componentDidMount() {
-
-    }
-
     updateQuery = (query) => {
         if (query) {
             BooksAPI.search(query).then((resultBooks) => {
-                this.setState({ resultBooks })
+                resultBooks.map((book) => {
+                    book.shelf = this.checkShelf(book);
+                })
+                this.setState({ resultBooks });
             })
         }
         this.setState(() => ({
@@ -26,9 +24,17 @@ class Search extends Component {
         }))
     }
 
-   
+    checkShelf = (book) => {
+        this.props.shelvedBooks.filter(b => b.id === book.id).map((update) => {
+            book.shelf = update.shelf;
+            console.log(book.shelf);
+        })
+        return book.shelf;
+    }
+
+
     clearQuery = () => {
-        this.updateQuery('')
+        this.updateQuery('');
     }
 
     render() {
@@ -56,8 +62,6 @@ class Search extends Component {
                     </div>
                 </div>
                 <div className="search-books-results">
-
-
                     <ol className="books-grid">
                         {
                             this.state.resultBooks.error ? <div>No results</div> :
@@ -68,10 +72,8 @@ class Search extends Component {
                                             updateShelf={this.props.updateShelf}
                                         />
                                     </li>
-
                                 )}
                     </ol>
-
                 </div>
             </div>
         )
@@ -79,4 +81,4 @@ class Search extends Component {
 
 }
 
-export default Search
+export default Search;
