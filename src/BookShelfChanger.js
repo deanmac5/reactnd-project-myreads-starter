@@ -12,10 +12,11 @@ class BookShelfChanger extends Component {
             <div className="book-shelf-changer">
 
                 <select value={this.props.book.shelf || 'none'} onChange={this.handleChange}>
-                    <option value="none" disabled>Move to...</option>
-                    <option value="Currently reading">Currently reading</option>
-                    <option value="Want to read">Want to read</option>
-                    <option value="Read">Read</option>
+                    <option value="placeholder" disabled>Move to...</option>
+                    <option value="currentlyReading">Currently reading</option>
+                    <option value="wantToRead">Want to read</option>
+                    <option value="read">Read</option>
+                    <option value="none">None</option>
 
                 </select>
 
@@ -24,4 +25,4 @@ class BookShelfChanger extends Component {
     }
 }
 
-export default BookShelfChanger
+export default BookShelfChanger;
