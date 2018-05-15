@@ -15,6 +15,7 @@ class Search extends Component {
             BooksAPI.search(query).then((resultBooks) => {
                 resultBooks.map((book) => {
                     book.shelf = this.checkShelf(book);
+                    
                 })
                 this.setState({ resultBooks });
             })
@@ -27,7 +28,7 @@ class Search extends Component {
     checkShelf = (book) => {
         this.props.shelvedBooks.filter(b => b.id === book.id).map((update) => {
             book.shelf = update.shelf;
-            console.log(book.shelf);
+            // return null;
         })
         return book.shelf;
     }
