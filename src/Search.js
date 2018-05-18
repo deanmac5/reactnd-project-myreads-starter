@@ -10,15 +10,22 @@ class Search extends Component {
         resultBooks: []
     };
 
+
+
     updateQuery = (query) => {
-        if (query) {
+        if (query.length > 1) {
             BooksAPI.search(query).then((resultBooks) => {
-                resultBooks.map(book => 
-                    book.shelf = this.checkShelf(book)
-                    
-                )
-                this.setState({ resultBooks });
+                if (resultBooks.length > 1) {
+                    resultBooks.map(book =>
+                        book.shelf = this.checkShelf(book)
+                    )
+                    this.setState({ resultBooks });
+                } else {
+                    this.setState({ resultBooks: [] })
+                }
             })
+        } else {
+            this.setState({ resultBooks: [] })
         }
         this.setState(() => ({
             query: query.trim()
@@ -26,16 +33,12 @@ class Search extends Component {
     }
 
     checkShelf = (book) => {
-        this.props.shelvedBooks.filter(b => b.id === book.id).map(update => 
+        this.props.shelvedBooks.filter(b => b.id === book.id).map(update =>
             book.shelf = update.shelf
         )
         return book.shelf;
     }
 
-
-    clearQuery = () => {
-        this.updateQuery('');
-    }
 
     render() {
 
@@ -64,15 +67,15 @@ class Search extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {
-                            this.state.resultBooks.error ? <div>No results</div> :
-                                this.state.resultBooks.map((book) =>
-                                    <li key={book.id}>
-                                        <Book
-                                            book={book}
-                                            updateShelf={this.props.updateShelf}
-                                        />
-                                    </li>
-                                )}
+                            // this.state.resultBooks.error ? <div>No results</div> :
+                            this.state.resultBooks.map((book) =>
+                                <li key={book.id}>
+                                    <Book
+                                        book={book}
+                                        updateShelf={this.props.updateShelf}
+                                    />
+                                </li>
+                            )}
                     </ol>
                 </div>
             </div>
