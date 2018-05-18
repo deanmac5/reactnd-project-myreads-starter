@@ -67,7 +67,7 @@ class Search extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {
-                            this.state.resultBooks.error ? <div>No results</div> :
+                            this.state.resultBooks.length < 1 ? <div>No results</div> :
                             this.state.resultBooks.map((book) =>
                                 <li key={book.id}>
                                     <Book
