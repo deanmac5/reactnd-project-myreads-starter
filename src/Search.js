@@ -13,10 +13,10 @@ class Search extends Component {
     updateQuery = (query) => {
         if (query) {
             BooksAPI.search(query).then((resultBooks) => {
-                resultBooks.map((book) => {
-                    book.shelf = this.checkShelf(book);
+                resultBooks.map(book => 
+                    book.shelf = this.checkShelf(book)
                     
-                })
+                )
                 this.setState({ resultBooks });
             })
         }
@@ -26,10 +26,9 @@ class Search extends Component {
     }
 
     checkShelf = (book) => {
-        this.props.shelvedBooks.filter(b => b.id === book.id).map((update) => {
-            book.shelf = update.shelf;
-            // return null;
-        })
+        this.props.shelvedBooks.filter(b => b.id === book.id).map(update => 
+            book.shelf = update.shelf
+        )
         return book.shelf;
     }
 
